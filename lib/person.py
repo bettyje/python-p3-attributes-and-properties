@@ -1,38 +1,38 @@
 class Person:
-    approved_jobs = ["Admin", "Customer Service", "Human Resources", "ITC", "Production",
-                     "Legal", "Finance", "Sales", "General Management", "Research & Development",
-                     "Marketing", "Purchasing"]
+    approved_jobs = [
+        "Admin", "Customer Service", "Human Resources", "ITC", "Production", 
+        "Legal", "Finance", "Sales", "General Management", 
+        "Research & Development", "Marketing", "Purchasing"
+    ]
 
-    # Ensure the method accepts these parameters
-    def __init__(self, name="Unknown", job="Admin"):
-        self.name = name
-        self.job = job
+    def __init__(self, name="John Doe", job="Admin"):
+        self.name = name  # Calls the setter for name
+        self.job = job  # Calls the setter for job
 
-    @property
-    def name(self):
+    # Name property
+    def get_name(self):
+        print("Retrieving name.")
         return self._name
 
-    @name.setter
-    def name(self, value):
-        if isinstance(value, str) and 1 <= len(value) <= 25:
-            self._name = value.title()  # Convert to title case
+    def set_name(self, name):
+        if isinstance(name, str) and 1 <= len(name) <= 25:
+            self._name = name.title()  # Convert to title case
+            print(f"Setting name to {self._name}.")
         else:
-            print("Name must be string between 1 and 25 characters.")
+            print("Name must be a string between 1 and 25 characters.")
 
-    @property
-    def job(self):
+    name = property(get_name, set_name)
+
+    # Job property
+    def get_job(self):
+        print("Retrieving job.")
         return self._job
 
-    @job.setter
-    def job(self, value):
-        if value in Person.approved_jobs:
-            self._job = value
+    def set_job(self, job):
+        if job in Person.approved_jobs:
+            print(f"Setting job to {job}.")
+            self._job = job
         else:
-            print("Job must be in list of approved jobs.")
+            print("Job must be in the list of approved jobs.")
 
-
-def test_is_class(self):
-    '''is a class with the name "Person".'''
-    guido = Person(name='Guido', job='Sales')  # This should now work
-    assert guido.name == 'Guido'
-    assert guido.job == 'Sales'
+    job = property(get_job, set_job)
