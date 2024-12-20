@@ -33,6 +33,6 @@ class Person:
 
 def test_is_class(self):
     '''is a class with the name "Person".'''
-    guido = Person(name='Guido', job='Sales')  # This should now work
+    guido = Person(name='Guido', job='Sales') 
     assert guido.name == 'Guido'
     assert guido.job == 'Sales'
