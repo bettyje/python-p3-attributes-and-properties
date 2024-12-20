@@ -29,10 +29,3 @@ class Person:
             self._job = value
         else:
             print("Job must be in list of approved jobs.")
-
-
-def test_is_class(self):
-    '''is a class with the name "Person".'''
-    guido = Person(name='Guido', job='Sales') 
-    assert guido.name == 'Guido'
-    assert guido.job == 'Sales'
